@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local="clr-namespace:MauiAppMVVM.Views"
+             x:Class="MauiAppMVVM.Views.PageListProductos"
+             Title="PageListProductos">
+
+
+
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+            <Button Text="Go To Details"
+                    Command="{Binding GoToDetailsCommand}"
+                    CommandParameter="{x:Type local:PageProductos}"/>
+
+            <ListView ItemsSource="{Binding Products}"
+                      SelectedItem="{Binding SelectedProduct}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nombre}"
+                                  Detail="{Binding Precio, StringFormat='Precio: {0:N2}'}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+    
+    
+</ContentPage>
